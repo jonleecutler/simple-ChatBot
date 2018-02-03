@@ -8,7 +8,7 @@ var express = require('express'); // web server application
 var app = express(); // webapp
 var http = require('http').Server(app); // connects http library to server
 var io = require('socket.io')(http); // connect websocket library to server
-var serverPort = 45890;
+var serverPort = 8001;
 
 
 //---------------------- WEBAPP SERVER SETUP ---------------------------------//
@@ -30,7 +30,7 @@ io.on('connect', function(socket) {
   var questionNum = 0; // keep count of question, used for IF condition.
   socket.on('loaded', function(){// we wait until the client has loaded and contacted us that it is ready to go.
 
-  socket.emit('answer',"Hey, hello I'm Timey, the timer chat bot."); //We start with the introduction;
+  socket.emit('answer',"Hey, hello I'm Timey, the count down chat bot."); //We start with the introduction;
   setTimeout(timedQuestion, 2500, socket,"What is your Name?"); // Wait a moment and respond with a question.
 
 });
